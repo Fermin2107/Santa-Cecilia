@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabaña Santa Cecilia — Consistent genetics</title>
+<meta name="description" content="Cabaña Santa Cecilia — family-run Shorthorn and Angus seedstock from Argentina. Herd sires, donor cows and embryos. Consistent genetics.">
+<meta name="theme-color" content="#931635">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<!-- Link previews (WhatsApp, Facebook, LinkedIn). If the Vercel URL is different, change SITE_URL in these three lines. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cabaña Santa Cecilia — Consistent genetics">
+<meta property="og:description" content="Shorthorn & Angus seedstock from Argentina. Herd sires, donor cows and embryos.">
+<meta property="og:url" content="https://cabana-santa-cecilia.vercel.app/">
+<meta property="og:image" content="https://cabana-santa-cecilia.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="img/hero.webp">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+:root{
+  --ink:#211815;
+  --ink-soft:#4a3d37;
+  --parchment:#EDE6D6;
+  --parchment-deep:#E1D6BE;
+  --card:#F8F3E8;
+  --rust:#931635;
+  --rust-deep:#650F26;
+  --gold:#A9873F;
+  --gold-soft:#C9AF7D;
+  --line:rgba(33,24,21,.14);
+  --line-soft:rgba(33,24,21,.08);
+  --white:#FBF9F4;
+  --shadow:0 18px 40px -22px rgba(33,24,21,.35);
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Work Sans', -apple-system, sans-serif;
+}
+
+:root{ color-scheme: light; }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#EDE6D6; --ink-soft:#c9bfae; --parchment:#1a1512; --parchment-deep:#0f0c0a;
+    --card:#231c17; --line:rgba(237,230,214,.14); --line-soft:rgba(237,230,214,.08);
+    --white:#161210; --gold-soft:#8a7345;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#EDE6D6; --ink-soft:#c9bfae; --parchment:#1a1512; --parchment-deep:#0f0c0a;
+  --card:#231c17; --line:rgba(237,230,214,.14); --line-soft:rgba(237,230,214,.08);
+  --white:#161210; --gold-soft:#8a7345;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--parchment);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.01em;}
+p{margin:0;}
+
+::selection{background:var(--rust);color:var(--white);}
+:focus-visible{outline:2px solid var(--rust);outline-offset:3px;}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 40px;
+  transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+}
+@media(max-width:900px){.nav{padding:18px 20px;}}
+.nav.solid{
+  background:rgba(237,230,214,.92);
+  backdrop-filter:blur(10px);
+  padding:14px 40px;
+  box-shadow:0 1px 0 var(--line);
+  border-bottom:2px solid var(--rust);
+}
+@media(max-width:900px){.nav.solid{padding:14px 20px;}}
+.brand{display:flex;align-items:center;color:var(--white);}
+.brand img{height:40px;width:auto;display:block;transition:opacity .2s ease;}
+@media(max-width:640px){.brand img{height:30px;}}
+.brand .logo-bordo{display:none;}
+.nav.solid .brand .logo-white, .page-alt .brand .logo-white{display:none;}
+.nav.solid .brand .logo-bordo, .page-alt .brand .logo-bordo{display:block;}
+
+.nav-links{display:flex;align-items:center;gap:38px;color:var(--white);transition:color .4s ease;}
+.nav.solid .nav-links, .page-alt .nav-links{color:var(--ink);}
+.nav-links a{font-size:13.5px;letter-spacing:.04em;position:relative;padding:6px 0;transition:color .25s ease;}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:var(--rust);transition:width .3s ease;
+}
+.nav-links a:hover, .nav-links a.active{color:var(--rust);}
+.nav-links a:hover::after, .nav-links a.active::after{width:100%;}
+
+.has-drop{position:relative;}
+.dropdown{
+  position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(-6px);
+  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--rust);box-shadow:var(--shadow);
+  padding:10px;min-width:190px;opacity:0;visibility:hidden;
+  transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+.has-drop:hover .dropdown, .has-drop:focus-within .dropdown{
+  opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
+}
+.dropdown a{display:block;color:var(--ink);padding:11px 14px;font-size:13.5px;transition:background .2s,color .2s;}
+.dropdown a:hover{background:rgba(122,42,30,.08);color:var(--rust);}
+.dropdown a::after{display:none;}
+
+.nav-right{display:flex;align-items:center;gap:34px;color:var(--white);transition:color .4s ease;}
+.nav.solid .nav-right, .page-alt .nav-right{color:var(--ink);}
+@media(max-width:900px){.nav-right{gap:20px;}}
+.lang-switch{display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.1em;}
+.lang-switch span{opacity:.45;}
+.lang-switch button{background:none;border:0;padding:4px 2px;color:inherit;font:inherit;letter-spacing:inherit;cursor:pointer;opacity:.6;border-bottom:2px solid transparent;transition:opacity .2s, color .2s, border-color .2s;}
+.lang-switch button:hover{opacity:1;color:var(--rust);}
+.lang-switch button.on{opacity:1;font-weight:600;border-bottom-color:var(--rust);}
+.burger.open{color:var(--ink);}
+.burger{z-index:210;}
+.nav-cta{display:none;}
+.burger{display:none;background:none;border:0;width:34px;height:26px;position:relative;color:inherit;}
+.burger span{position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .3s, opacity .3s;}
+.burger span:nth-child(1){top:2px;}
+.burger span:nth-child(2){top:12px;}
+.burger span:nth-child(3){top:22px;}
+.burger.open span:nth-child(1){transform:translateY(10px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-10px) rotate(-45deg);}
+
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .burger{display:block;}
+}
+
+.mobile-menu{
+  position:fixed;inset:0;z-index:190;background:var(--parchment);
+  display:flex;flex-direction:column;justify-content:center;gap:6px;padding:40px;
+  transform:translateY(-100%);transition:transform .45s cubic-bezier(.6,0,.2,1);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{font-family:var(--serif);font-size:30px;padding:14px 0;border-bottom:1px solid var(--line);}
+.mobile-menu .sub a{font-size:19px;font-family:var(--sans);padding:10px 0 10px 18px;border:0;color:var(--ink-soft);}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;height:100vh;min-height:640px;color:var(--white);
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,14,11,.25) 0%,rgba(20,14,11,.15) 35%,rgba(20,14,11,.75) 100%);
+}
+.hero-content{position:relative;z-index:2;padding:0 40px 76px;width:100%;}
+@media(max-width:640px){.hero-content{padding:0 20px 56px;}}
+.hero-eyebrow{font-size:13px;letter-spacing:.24em;color:var(--gold-soft);margin-bottom:18px;}
+.hero h1{font-size:clamp(48px,9vw,108px);line-height:.96;font-weight:500;}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--gold-soft);}
+.hero-sub{margin-top:22px;max-width:460px;font-size:16.5px;color:rgba(251,249,244,.86);}
+.hero-scroll{
+  position:absolute;bottom:28px;right:40px;z-index:2;color:var(--white);
+  display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;
+  writing-mode:vertical-rl;
+}
+.hero-scroll::before{content:'';width:1px;height:44px;background:rgba(251,249,244,.5);}
+@media(max-width:640px){.hero-scroll{display:none;}}
+
+/* section generic */
+.section{padding:120px 0;}
+@media(max-width:640px){.section{padding:76px 0;}}
+.section-alt{background:var(--card);}
+.eyebrow{
+  font-size:12.5px;letter-spacing:.2em;color:var(--rust);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--rust);flex:none;}
+.section-head{max-width:640px;}
+.section-head h2{font-size:clamp(32px,4.4vw,52px);}
+.section-head p{margin-top:18px;color:var(--ink-soft);font-size:16px;max-width:520px;}
+.lede{font-size:clamp(22px,2.6vw,30px);font-family:var(--serif);font-weight:400;line-height:1.4;max-width:760px;}
+
+/* ---------- INTRO STRIP (home) ---------- */
+.intro{padding:96px 0 40px;}
+.intro-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:end;}
+@media(max-width:840px){.intro-grid{grid-template-columns:1fr;gap:36px;}}
+.stat-row{display:flex;gap:44px;margin-top:8px;flex-wrap:wrap;}
+.stat b{display:block;font-family:var(--serif);font-size:34px;color:var(--rust);}
+.stat span{font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em;}
+
+/* ---------- feature split (genética teaser) ---------- */
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:0;align-items:stretch;}
+@media(max-width:900px){.split{grid-template-columns:1fr;}}
+.split-text{display:flex;flex-direction:column;justify-content:center;padding:70px 60px;}
+@media(max-width:900px){.split-text{padding:56px 24px;}}
+.split-photos{display:grid;grid-template-columns:1fr 1fr;}
+.split-full{grid-template-columns:1fr;}
+.split-full .split-photo{aspect-ratio:3/2;}
+@media(max-width:640px){.split-full .split-photos{grid-template-columns:1fr;}}
+.split-photo{position:relative;overflow:hidden;aspect-ratio:4/3;}
+.split-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+.split-photo:hover img{transform:scale(1.06);}
+.split-photo::before{
+  content:'';position:absolute;inset:0;background:var(--rust);opacity:0;
+  mix-blend-mode:multiply;transition:opacity .4s ease;pointer-events:none;
+}
+.split-photo:hover::before{opacity:.12;}
+.split-photo .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:26px 24px;color:var(--white);
+  background:linear-gradient(0deg,rgba(20,14,11,.85) 0%,rgba(20,14,11,.55) 55%,rgba(20,14,11,0) 100%);
+  border-top:0;box-shadow:none;transition:box-shadow .3s ease;
+}
+.split-photo:hover .cap{box-shadow:inset 0 3px 0 var(--rust);}
+.split-photo .cap b{font-family:var(--serif);font-size:22px;font-weight:500;display:block;}
+.split-photo .cap span{font-size:12px;letter-spacing:.1em;color:var(--gold-soft);}
+
+/* buttons / links */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 28px;
+  border:1px solid var(--ink);font-size:13px;letter-spacing:.08em;margin-top:28px;
+  transition:background .3s,color .3s,border-color .3s;
+}
+.btn:hover{background:var(--rust);color:var(--white);border-color:var(--rust);}
+.btn.solid{background:var(--rust);border-color:var(--rust);color:var(--white);}
+.btn.solid:hover{background:var(--rust-deep);border-color:var(--rust-deep);}
+.text-link{
+  display:inline-block;margin-top:22px;font-size:13.5px;color:var(--ink);
+  border-bottom:1px solid var(--ink);padding-bottom:3px;
+  transition:color .25s ease,border-color .25s ease;
+}
+.text-link:hover{color:var(--rust);border-color:var(--rust);}
+
+/* ---------- ANIMAL GRID ---------- */
+.animal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:56px;}
+@media(max-width:960px){.animal-grid{grid-template-columns:repeat(2,1fr);gap:24px;}}
+@media(max-width:600px){.animal-grid{grid-template-columns:1fr;}}
+.animal-grid{align-items:start;}
+.animal-card{cursor:pointer;}
+.animal-photo{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--parchment-deep);}
+.animal-photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);}
+.animal-card:hover .animal-photo img{transform:scale(1.055);}
+.animal-info{
+  padding:18px 2px 0;display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:1px solid var(--line);padding-bottom:16px;transition:border-color .25s ease;
+}
+.animal-card:hover .animal-info{border-color:var(--rust);}
+.animal-info h3{font-size:21px;transition:color .25s ease;}
+.animal-card:hover .animal-info h3{color:var(--rust-deep);}
+.animal-info span{font-size:12px;letter-spacing:.08em;color:var(--rust);}
+
+/* page hero (non-home) */
+.page-hero{position:relative;height:56vh;min-height:400px;color:var(--white);display:flex;align-items:flex-end;overflow:hidden;}
+.page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,11,.35),rgba(20,14,11,.7));}
+.page-hero-content{position:relative;z-index:2;padding:0 40px 56px;}
+@media(max-width:640px){.page-hero-content{padding:0 20px 40px;}}
+.page-hero h1{font-size:clamp(38px,7vw,72px);}
+.crumb{font-size:12.5px;letter-spacing:.1em;color:var(--gold-soft);margin-bottom:14px;}
+
+/* ---------- FICHA (individual page) ---------- */
+.ficha-top{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;}
+@media(max-width:900px){.ficha-top{grid-template-columns:1fr;gap:32px;}}
+.ficha-photo{aspect-ratio:4/3;overflow:hidden;border-bottom:3px solid var(--rust);}
+.ficha-photo img{width:100%;height:100%;object-fit:cover;}
+.ficha-meta{display:flex;flex-direction:column;gap:4px;margin-top:26px;}
+.ficha-meta-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+.ficha-meta-row span:first-child{color:var(--ink-soft);}
+.ficha-meta-row span:last-child{color:var(--rust-deep);font-weight:500;}
+
+.tree{display:flex;flex-wrap:wrap;align-items:flex-start;gap:28px;margin-top:40px;}
+.tree-node{width:200px;text-align:left;}
+.tree-node .ph{width:100%;overflow:hidden;border:1px solid var(--line);border-top:3px solid var(--rust);background:var(--parchment-deep);}
+.tree-node .ph img{width:100%;height:100%;object-fit:cover;display:block;}
+.tree-node b{display:block;font-family:var(--serif);margin-top:12px;font-size:17px;}
+.tree-node span{font-size:11.5px;letter-spacing:.1em;color:var(--rust);}
+.tree-connector{display:flex;align-items:center;color:var(--rust);opacity:.55;font-size:20px;padding-top:80px;}
+
+.hijos-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:20px;align-items:start;}
+@media(max-width:900px){.hijos-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:520px){.hijos-grid{grid-template-columns:repeat(2,1fr);}}
+.hijos-grid .ph{overflow:hidden;background:var(--parchment-deep);}
+.hijos-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block;}
+.hijos-grid .ph:hover img{transform:scale(1.08);}
+.hijos-grid .hijo{display:block;}
+.hijos-grid .hijo b{display:block;margin-top:8px;font-size:13px;font-weight:500;color:var(--ink);text-align:center;}
+.hijos-grid .hijo:hover b{color:var(--rust);}
+
+/* ---------- QUIENES SOMOS ---------- */
+.qs-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media(max-width:900px){.qs-hero{grid-template-columns:1fr;}}
+.qs-photo{aspect-ratio:4/3;overflow:hidden;}
+.qs-photo img{width:100%;height:100%;object-fit:cover;}
+.qs-text{display:flex;align-items:center;padding:70px 64px;}
+@media(max-width:900px){.qs-text{padding:48px 24px;}}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px;}
+@media(max-width:760px){.values{grid-template-columns:1fr;gap:32px;}}
+.value b{font-family:var(--serif);font-size:22px;display:block;margin-bottom:10px;}
+.value p{color:var(--ink-soft);font-size:14.5px;}
+.placeholder-note{
+  margin-top:60px;padding:20px 24px;border:1px dashed var(--gold);
+  font-size:13px;color:var(--ink-soft);background:var(--card);
+}
+
+/* ---------- CHAMPION OF THE WORLD ---------- */
+.cotw-head{display:flex;align-items:center;gap:44px;flex-wrap:wrap;}
+.cotw-logo{width:240px;max-width:70%;height:auto;display:block;}
+.cotw-logo-sm{width:150px;}
+@media(max-width:640px){.cotw-logo{width:190px;}.cotw-logo-sm{width:130px;}}
+.cotw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 32px;margin-top:56px;align-items:start;}
+@media(max-width:900px){.cotw-grid{grid-template-columns:repeat(2,1fr);gap:28px 20px;}}
+@media(max-width:520px){.cotw-grid{grid-template-columns:1fr;}}
+.cotw-card{display:block;border-top:2px solid var(--line);padding-top:18px;transition:border-color .25s ease;}
+.cotw-card:hover{border-top-color:var(--rust);}
+.cotw-card .ph{overflow:hidden;background:var(--parchment-deep);}
+.cotw-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.cotw-card:hover img{transform:scale(1.04);}
+.cotw-info{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:16px;row-gap:4px;margin-top:16px;}
+.cotw-year{font-family:var(--serif);font-size:34px;line-height:1;color:var(--rust);grid-row:span 2;}
+.cotw-year.multi{font-size:22px;max-width:70px;}
+.cotw-info h3{font-size:19px;}
+.medal{display:flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+.medal i{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none;}
+.medal-gold i{background:linear-gradient(135deg,#E3C46B,#A9873F);}
+.medal-silver i{background:linear-gradient(135deg,#E4E4E4,#9C9C9C);}
+.medal-bronze i{background:linear-gradient(135deg,#D9A06B,#8C5A2E);}
+.medal-america i{background:var(--rust);}
+.medal-america{color:var(--rust);}
+/* ---------- NOTICIAS ---------- */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr;}}
+.news-card{border-top:2px solid var(--line);padding-top:20px;transition:border-color .25s ease;}
+.news-card:hover{border-top-color:var(--rust);}
+.news-tag{font-size:11.5px;letter-spacing:.12em;color:var(--rust);}
+.news-card h3{font-size:22px;margin-top:12px;}
+.news-card p{color:var(--ink-soft);font-size:14px;margin-top:10px;}
+.news-date{font-size:12px;color:var(--ink-soft);margin-top:16px;display:block;}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+@media(max-width:840px){.contact-grid{grid-template-columns:1fr;gap:36px;}}
+.contact-item{padding:26px 0;border-bottom:1px solid var(--line);transition:border-color .25s ease;}
+.contact-item:hover{border-color:var(--rust);}
+.contact-item span{display:block;font-size:12px;letter-spacing:.1em;color:var(--rust);margin-bottom:8px;}
+.contact-item a, .contact-item p{font-family:var(--serif);font-size:23px;}
+
+/* footer */
+footer{background:var(--rust);color:var(--white);padding:70px 0 30px;}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.22);}
+.foot-brand{display:flex;align-items:center;gap:16px;}
+.foot-brand img{height:46px;width:auto;display:block;}
+.foot-links{display:flex;gap:60px;flex-wrap:wrap;}
+.foot-col b{font-size:12px;letter-spacing:.12em;color:rgba(255,255,255,.72);display:block;margin-bottom:16px;font-weight:500;}
+.foot-col a{display:block;font-size:14px;margin-bottom:10px;color:var(--white);opacity:.94;transition:opacity .2s ease;}
+.foot-col a:hover{opacity:.65;}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:26px;font-size:12px;color:rgba(255,255,255,.68);flex-wrap:wrap;gap:10px;}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* misc */
+.hidden{display:none !important;}
+.divider{height:1px;background:var(--line);margin:0;}
+
+</style>
+</head>
+<body>
+<div id="navContainer"></div>
+<main id="app"></main>
+<div id="footContainer"></div>
+
+<script>
+window.IMAGES = {"hero": "img/hero.webp", "toto": "img/toto.webp", "martin": "img/martin.webp", "tomas": "img/tomas.webp", "sucesor": "img/sucesor.webp", "facundo": "img/facundo.webp", "riyadh": "img/riyadh.webp", "julie": "img/julie.webp", "libra": "img/libra.webp", "blancanieves": "img/blancanieves.webp", "nieves": "img/nieves.webp", "esterlina": "img/esterlina.webp", "maggie": "img/maggie.webp", "tzarina": "img/tzarina.webp", "elvira": "img/elvira.webp", "potranca": "img/potranca.webp", "afrodita": "img/afrodita.webp", "atenea": "img/atenea.webp", "navarro": "img/navarro.webp", "braco": "img/braco.webp", "fabulosa": "img/fabulosa.webp", "matias-star": "img/matias-star.webp", "copetona": "img/copetona.webp", "highlander": "img/highlander.webp", "nevado": "img/nevado.webp", "diva-virtual": "img/diva-virtual.webp", "mia": "img/mia.webp"};
+window.COTW_LOGO = "img/cotw-logo.png";
+window.IMAGES_META = {"hero": [1280, 853], "toto": [1200, 797], "martin": [999, 748], "tomas": [1011, 708], "sucesor": [947, 725], "facundo": [704, 403], "riyadh": [691, 500], "julie": [1200, 800], "libra": [1178, 827], "blancanieves": [1200, 800], "nieves": [1104, 801], "esterlina": [960, 629], "maggie": [1075, 810], "tzarina": [832, 557], "elvira": [1040, 585], "potranca": [1200, 797], "afrodita": [1024, 576], "atenea": [960, 708], "navarro": [480, 320], "braco": [520, 350], "fabulosa": [632, 353], "matias-star": [274, 182], "copetona": [960, 640], "highlander": [540, 370], "nevado": [1200, 811], "diva-virtual": [1200, 801], "mia": [794, 658]};
+window.LOGO_BORDO = "img/logo-bordo.png";
+window.LOGO_WHITE = "img/logo-white.png";
+</script>
+<script>
+/* ============ LANGUAGE ============ */
+let LANG = (function(){
+  try { const s = localStorage.getItem('sc-lang'); if(s === 'es' || s === 'en') return s; } catch(e){}
+  return 'en';
+})();
+const T = (es, en) => LANG === 'en' ? en : es;
+const L = (x) => (x && typeof x === 'object') ? (x[LANG] ?? x.es) : x;
+function setLang(l){
+  if(l === LANG) return;
+  LANG = l;
+  try { localStorage.setItem('sc-lang', l); } catch(e){}
+  mountChrome();
+  render();
+}
+
+/* ============ DATA ============ */
+const R = {
+  madre:{es:'Madre', en:'Dam'},
+  abuela:{es:'Abuela', en:'Granddam'},
+  padre:{es:'Padre', en:'Sire'},
+  hermanaMaterna:{es:'Hermana materna', en:'Maternal sister'},
+  nieta:{es:'Nieta', en:'Granddaughter'},
+  padre9:{es:'Padre (9 años)', en:'Sire (pictured at 9)'},
+};
+const FAM = {
+  fundadoras:{es:'Familia Fundadoras', en:'Fundadoras Family'},
+  mallorcas:{es:'Familia Mallorcas', en:'Mallorcas Family'},
+  familia:{es:'Familia', en:'Family'},
+};
+const INTRO_FUND = {es:'Toro padre del plantel, de la familia fundadora de la cabaña.', en:'Herd sire from the ranch’s founding family.'};
+
+const BULLS = [
+  {
+    slug:'toto', name:'Leave Toto', photo:'toto',
+    intro:{es:'Toro padre de la cabaña, cabeza de la familia fundadora y padre de varias de las donantes actuales del plantel.', en:'Herd sire at the head of the founding family, and sire of several of our current donors.'},
+    family:[
+      {rel:R.madre, name:'Leave Tzarina', photo:'tzarina'},
+      {rel:R.abuela, name:'Leave Elvira', photo:'elvira'},
+    ],
+    familyLabel:FAM.fundadoras,
+    hijos:[
+      {name:'Nevado', photo:'nevado'},
+      {name:'Leave Esterlina', photo:'esterlina', link:'donante/esterlina'},
+      {name:'Diva Virtual', photo:'diva-virtual'},
+      {name:'Leave Maggie', photo:'maggie', link:'donante/maggie'},
+      {name:'Mía', photo:'mia'},
+      {name:'Leave Sucesor', photo:'sucesor', link:'toro/sucesor'},
+    ],
+  },
+  {
+    slug:'martin', name:'Leave Martín', photo:'martin', intro:INTRO_FUND,
+    family:[
+      {rel:R.madre, name:'Leave Potranca', photo:'potranca'},
+      {rel:R.hermanaMaterna, name:'Leave Afrodita', photo:'afrodita'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+  {
+    slug:'tomas', name:'Leave Tomás', photo:'tomas', intro:INTRO_FUND,
+    family:[
+      {rel:R.abuela, name:'Leave Potranca', photo:'potranca'},
+      {rel:R.madre, name:'Leave Afrodita', photo:'afrodita'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+  {
+    slug:'sucesor', name:'Leave Sucesor', photo:'sucesor', intro:INTRO_FUND,
+    family:[
+      {rel:R.abuela, name:'Leave Afrodita', photo:'afrodita'},
+      {rel:R.madre, name:'Leave Atenea', photo:'atenea'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+  {
+    slug:'facundo', name:'Leave Facundo', photo:'facundo', intro:INTRO_FUND,
+    family:[
+      {rel:R.abuela, name:'Leave Potranca', photo:'potranca'},
+      {rel:R.madre, name:'Leave Afrodita', photo:'afrodita'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+  {
+    slug:'riyadh', name:'Leave Riyadh', photo:'riyadh',
+    intro:{es:'Toro padre del plantel de Cabaña Santa Cecilia.', en:'Herd sire at Cabaña Santa Cecilia.'},
+    family:[
+      {rel:R.nieta, name:'Leave Potranca', photo:'potranca'},
+      {rel:R.nieta, name:'Leave Elvira', photo:'elvira'},
+    ],
+    familyLabel:FAM.familia,
+  },
+];
+
+const DONORS = [
+  {
+    slug:'julie', name:'Leave Julie', photo:'julie',
+    intro:{es:'Donante del plantel y madre de Leave Maggie.', en:'Donor cow, dam of Leave Maggie.'},
+    family:[
+      {rel:R.padre, name:'Leave Navarro', photo:'navarro'},
+      {rel:R.madre, name:'Leave Afrodita', photo:'afrodita'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+  {
+    slug:'libra', name:'Leave Libra', photo:'libra',
+    intro:{es:'Donante del plantel, madre de Leave Esterlina.', en:'Donor cow, dam of Leave Esterlina.'},
+    family:[
+      {rel:R.padre9, name:'Leave Braco', photo:'braco'},
+      {rel:R.madre, name:'Leave Fabulosa', photo:'fabulosa'},
+    ],
+    familyLabel:FAM.mallorcas,
+  },
+  {
+    slug:'blancanieves', name:'Leave Blancanieves', photo:'blancanieves',
+    intro:{es:'Donante del plantel de Cabaña Santa Cecilia.', en:'Donor cow at Cabaña Santa Cecilia.'},
+    family:[
+      {rel:R.padre, name:'Matías Star', photo:'matias-star'},
+      {rel:R.madre, name:'Leave Copetona', photo:'copetona'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+  {
+    slug:'nieves', name:'Leave Nieves', photo:'nieves',
+    intro:{es:'Donante del plantel de Cabaña Santa Cecilia.', en:'Donor cow at Cabaña Santa Cecilia.'},
+    family:[
+      {rel:R.padre, name:'Highlander', photo:'highlander'},
+      {rel:R.madre, name:'Leave Afrodita', photo:'afrodita'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+  {
+    slug:'esterlina', name:'Leave Esterlina', photo:'esterlina',
+    intro:{es:'Donante del plantel, hija de Leave Toto y Leave Libra.', en:'Donor cow, by Leave Toto out of Leave Libra.'},
+    family:[
+      {rel:R.padre, name:'Leave Toto', photo:'toto', link:'toro/toto'},
+      {rel:R.madre, name:'Leave Libra', photo:'libra', link:'donante/libra'},
+    ],
+    familyLabel:FAM.mallorcas,
+  },
+  {
+    slug:'maggie', name:'Leave Maggie', photo:'maggie',
+    intro:{es:'Donante del plantel, hija de Leave Toto y Leave Julie.', en:'Donor cow, by Leave Toto out of Leave Julie.'},
+    family:[
+      {rel:R.padre, name:'Leave Toto', photo:'toto', link:'toro/toto'},
+      {rel:R.madre, name:'Leave Julie', photo:'julie', link:'donante/julie'},
+    ],
+    familyLabel:FAM.fundadoras,
+  },
+];
+
+const COTW_NAME = 'Champion of the World Competition';
+const COTW_SHORT = 'Champion of the World';
+const MEDAL = {
+  gold:{es:'Oro', en:'Gold', cls:'gold'},
+  silver:{es:'Plata', en:'Silver', cls:'silver'},
+  bronze:{es:'Bronce', en:'Bronze', cls:'bronze'},
+  america:{es:'Campeona de América', en:'Champion of the Americas', cls:'america'},
+};
+const COTW = [
+  {year:2025, name:'Leave Blancanieves', photo:'blancanieves', medal:MEDAL.gold, link:'donante/blancanieves'},
+  {year:2023, name:'Leave Julie', photo:'julie', medal:MEDAL.silver, link:'donante/julie'},
+  {year:2022, name:'Leave Libra', photo:'libra', medal:MEDAL.america, link:'donante/libra'},
+  {year:2020, name:'Leave Afrodita', photo:'afrodita', medal:MEDAL.gold},
+  {year:'2018 · 2019', n:2, name:'Leave Tzarina', photo:'tzarina', medal:MEDAL.silver},
+  {year:2017, name:'Leave Potranca', photo:'potranca', medal:MEDAL.gold},
+  {year:2016, name:'Leave Elvira', photo:'elvira', medal:MEDAL.bronze},
+];
+
+function findAnimal(kind, slug){
+  const list = kind === 'toro' ? BULLS : DONORS;
+  return list.find(a => a.slug === slug);
+}
+
+/* ============ TEMPLATES ============ */
+const img = (key, alt='') => `<img src="${IMAGES[key]||''}" alt="${alt}" ${key==='hero' ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+
+/* Returns an inline aspect-ratio style matching the photo's real proportions,
+   so containers never force a crop that cuts the animal. */
+function ratioStyle(key){
+  const m = (window.IMAGES_META || {})[key];
+  if(!m) return '';
+  return `style="aspect-ratio:${m[0]}/${m[1]}"`;
+}
+
+function langSwitch(){
+  return `<div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="es" class="${LANG==='es'?'on':''}" aria-pressed="${LANG==='es'}">ES</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-lang="en" class="${LANG==='en'?'on':''}" aria-pressed="${LANG==='en'}">EN</button>
+  </div>`;
+}
+
+function navTemplate(){
+  return `
+  <nav class="nav" id="nav">
+    <a href="#/" class="brand">
+      <img class="logo-bordo" src="${window.LOGO_BORDO}" alt="Cabaña Santa Cecilia">
+      <img class="logo-white" src="${window.LOGO_WHITE}" alt="Cabaña Santa Cecilia">
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#/quienes-somos" data-route="quienes-somos">${T('Quiénes somos','About us')}</a>
+        <div class="has-drop">
+          <a href="#/genetica" data-route="genetica">${T('Nuestra genética','Our genetics')}</a>
+          <div class="dropdown">
+            <a href="#/toros">${T('Toros padres','Sires')}</a>
+            <a href="#/donantes">${T('Donantes','Donors')}</a>
+          </div>
+        </div>
+        <a href="#/champion-of-the-world" data-route="champion-of-the-world">${COTW_SHORT}</a>
+        <a href="#/contacto" data-route="contacto">${T('Contacto','Contact')}</a>
+      </div>
+      ${langSwitch()}
+      <button class="burger" id="burger" aria-label="${T('Abrir menú','Open menu')}"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#/quienes-somos">${T('Quiénes somos','About us')}</a>
+    <a href="#/genetica">${T('Nuestra genética','Our genetics')}</a>
+    <div class="sub">
+      <a href="#/toros">— ${T('Toros padres','Sires')}</a>
+      <a href="#/donantes">— ${T('Donantes','Donors')}</a>
+    </div>
+    <a href="#/champion-of-the-world">${COTW_SHORT}</a>
+    <a href="#/contacto">${T('Contacto','Contact')}</a>
+  </div>`;
+}
+
+function footerTemplate(){
+  return `
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <img src="${window.LOGO_WHITE}" alt="Cabaña Santa Cecilia">
+          <div style="font-size:13px;color:rgba(255,255,255,.8);letter-spacing:.02em;">${T('Genética consistente','Consistent genetics')}</div>
+        </div>
+        <div class="foot-links">
+          <div class="foot-col">
+            <b>${T('Genética','Genetics')}</b>
+            <a href="#/toros">${T('Toros padres','Sires')}</a>
+            <a href="#/donantes">${T('Donantes','Donors')}</a>
+          </div>
+          <div class="foot-col">
+            <b>${T('Cabaña','The ranch')}</b>
+            <a href="#/quienes-somos">${T('Quiénes somos','About us')}</a>
+            <a href="#/champion-of-the-world">${COTW_SHORT}</a>
+          </div>
+          <div class="foot-col">
+            <b>${T('Contacto','Contact')}</b>
+            <a href="https://instagram.com/cabanasantacecilia" target="_blank" rel="noopener">@cabanasantacecilia</a>
+            <a href="mailto:eyherabidefrancisco@gmail.com">eyherabidefrancisco@gmail.com</a>
+            <a href="tel:+5492392633869">+54 9 2392 633869</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© ${new Date().getFullYear()} Cabaña Santa Cecilia</span>
+        <span>Trenque Lauquen, Buenos Aires, Argentina</span>
+      </div>
+    </div>
+  </footer>`;
+}
+
+function cotwCards(list){
+  return list.map(r=>`
+    <a class="cotw-card" href="${r.link ? '#/'+r.link : '#'}" style="${r.link ? '' : 'pointer-events:none;'}">
+      <div class="ph" ${ratioStyle(r.photo)}>${img(r.photo, r.name)}</div>
+      <div class="cotw-info">
+        <div class="cotw-year${r.n ? ' multi' : ''}">${r.year}</div>
+        <div class="medal medal-${r.medal.cls}"><i></i>${L(r.medal)}</div>
+        <h3>${r.name}</h3>
+      </div>
+    </a>`).join('');
+}
+
+function homeTemplate(){
+  return `
+  <section class="hero">
+    ${img('hero', T('Rodeo de Cabaña Santa Cecilia','Cabaña Santa Cecilia herd'))}
+    <div class="hero-content">
+      <div class="hero-eyebrow">${T('GENÉTICA SHORTHORN Y ANGUS · TRENQUE LAUQUEN','SHORTHORN & ANGUS GENETICS · ARGENTINA')}</div>
+      <h1>Cabaña<br><em>Santa Cecilia</em></h1>
+      <p class="hero-sub">${T('Genética consistente, construida a campo abierto a partir de familias fundadoras y una selección rigurosa de toros padres y donantes.','Consistent genetics, built on grass from proven cow families and a rigorous selection of sires and donors.')}</p>
+    </div>
+    <div class="hero-scroll">${T('DESLIZAR','SCROLL')}</div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-grid reveal">
+        <p class="lede">${T('Cabaña Santa Cecilia trabaja la genética bovina desde el campo, con un criterio de selección que prioriza la consistencia de las familias por sobre la individualidad de un animal.','Cabaña Santa Cecilia is a family-run Shorthorn and Angus seedstock operation in Argentina. We select for the consistency of whole cow families rather than the individual standout.')}</p>
+        <div class="stat-row">
+          <div class="stat"><b>6</b><span>${T('Toros padres','Sires')}</span></div>
+          <div class="stat"><b>6</b><span>${T('Donantes','Donors')}</span></div>
+          <div class="stat"><b>10</b><span>${T('Grandes Campeones Shorthorn en Palermo','Shorthorn Grand Champions at Palermo')}</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow reveal">${T('NUESTRA GENÉTICA','OUR GENETICS')}</div>
+      <h2 class="reveal" style="font-size:clamp(30px,4vw,46px);max-width:600px;">${T('Dos líneas de trabajo, un mismo criterio de selección','Sires and donors, one selection philosophy')}</h2>
+    </div>
+    <div class="split reveal" style="margin-top:56px;">
+      <div class="split-photos">
+        <a class="split-photo" href="#/toros">
+          ${img('toto', T('Toros padres','Sires'))}
+          <div class="cap"><span>${T('EXPLORAR','EXPLORE')}</span><b>${T('Toros padres','Sires')}</b></div>
+        </a>
+        <a class="split-photo" href="#/donantes">
+          ${img('esterlina', T('Donantes','Donors'))}
+          <div class="cap"><span>${T('EXPLORAR','EXPLORE')}</span><b>${T('Donantes','Donors')}</b></div>
+        </a>
+      </div>
+      <div class="split-text">
+        <p style="color:var(--ink-soft);font-size:15.5px;max-width:380px;">${T('Cada animal del plantel puede rastrearse hasta sus familias fundadoras. Conocé el origen, la genealogía y las fotografías de cada toro padre y cada donante de la cabaña.','Every animal in the herd traces back to our foundation cow families. Browse the pedigree and photos of each sire and donor.')}</p>
+        <a href="#/genetica" class="text-link">${T('Ver genética completa','View all genetics')}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap qs-hero" style="background:var(--card);">
+      <div class="qs-photo reveal">${img('tomas','Cabaña Santa Cecilia')}</div>
+      <div class="qs-text reveal">
+        <div>
+          <div class="eyebrow">${T('QUIÉNES SOMOS','ABOUT US')}</div>
+          <h2 style="font-size:clamp(28px,3.6vw,42px);">${T('Genética consistente. Generación tras generación.','Consistent genetics. Generation after generation.')}</h2>
+          <a href="#/quienes-somos" class="text-link">${T('Conocer la cabaña','Meet the ranch')}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow reveal">${COTW_NAME.toUpperCase()}</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
+        <div class="reveal" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <img class="cotw-logo cotw-logo-sm" src="${window.COTW_LOGO}" alt="Champion of the World Competition">
+          <h2 style="font-size:clamp(30px,4vw,46px);">${T('Resultados recientes','Recent results')}</h2>
+        </div>
+        <a href="#/champion-of-the-world" class="text-link" style="margin-top:0;">${T('Ver todos los resultados','View all results')}</a>
+      </div>
+      <div class="cotw-grid reveal">${cotwCards(COTW.slice(0,3))}</div>
+    </div>
+  </section>
+  `;
+}
+
+function pageHeroTemplate(crumb, title, photoKey){
+  return `
+  <section class="page-hero">
+    ${img(photoKey, title)}
+    <div class="page-hero-content">
+      <div class="crumb">${crumb}</div>
+      <h1>${title}</h1>
+    </div>
+  </section>`;
+}
+
+function quienesSomosTemplate(){
+  return `
+  ${pageHeroTemplate('CABAÑA SANTA CECILIA', T('Quiénes somos','About us'), 'hero')}
+  <section class="section">
+    <div class="wrap">
+      <p class="lede reveal">${T(
+        'Somos una empresa familiar. Desde su fundación, la cabaña cría Shorthorn con un objetivo que no cambió: hacer mejora genética para rodeos puros y de cruzamiento. En 2003 sumamos Angus.',
+        'We are a family business. Since the ranch was founded, we have bred Shorthorn cattle with one unchanged goal: genetic improvement for purebred and commercial crossbreeding herds. We added Angus in 2003.')}</p>
+      <div class="values reveal">
+        <div class="value">
+          <b>${T('Hoy','Today')}</b>
+          <p>${T(
+            'Comercializamos más de 100 toros, vendemos semen en Argentina, Chile, Uruguay y Brasil, y exportamos embriones. Toda la familia trabaja en el establecimiento.',
+            'We market more than 100 bulls, sell semen in Argentina, Chile, Uruguay and Brazil, and export embryos. The whole family works on the operation.')}</p>
+        </div>
+        <div class="value">
+          <b>${T('Selección por familias','Bred by cow families')}</b>
+          <p>${T(
+            'Seleccionamos por familias, no por animales aislados. Trabajamos líneas maternas completas para que los rasgos buenos se repitan generación tras generación, en vez de depender de un ejemplar excepcional. A eso le llamamos genética consistente.',
+            'We select by cow families, not by individual animals. Working complete maternal lines means the right traits repeat generation after generation, instead of relying on a single exceptional animal. That is what we call consistent genetics.')}</p>
+        </div>
+        <div class="value">
+          <b>${T('Genética que trabaja','Genetics that work')}</b>
+          <p>${T(
+            'Priorizamos facilidad de parto, ubres y pezuñas funcionales, buen fenotipo y facilidad de engorde. Nuestros toros y nuestro semen trabajan en todo el país y se adaptan a los distintos ambientes y recursos de cada campo.',
+            'We prioritize calving ease, sound udders and feet, phenotype and ease of finishing. Our bulls and semen work across Argentina, adapting to very different environments and feed resources.')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="eyebrow reveal">${T('RESULTADOS','SHOW RESULTS')}</div>
+      <h2 class="reveal" style="max-width:640px;font-size:clamp(28px,3.6vw,42px);">${T('10 Grandes Campeones Shorthorn en las últimas 10 ediciones de Palermo','10 Shorthorn Grand Champions in the last 10 editions of Palermo')}</h2>
+      <p class="reveal" style="margin-top:18px;color:var(--ink-soft);max-width:620px;">${T(
+        'Palermo es la exposición nacional de la Sociedad Rural Argentina, la principal muestra ganadera del país.',
+        'Palermo is Argentina’s National Livestock Show, run by the Sociedad Rural Argentina and the country’s premier cattle show.')}</p>
+      <div class="values reveal" style="margin-top:44px;">
+        <div class="value">
+          <b>Shorthorn</b>
+          <p>${T('En Palermo: 9 Grandes Campeonatos con hembras y 1 con macho en las últimas 10 ediciones.','At Palermo: 9 Grand Championships with females and 1 with a bull over the last 10 editions.')}</p>
+        </div>
+        <div class="value">
+          <b>Angus</b>
+          <p>${T('Gran Campeón Macho, dos veces Tercera Mejor Hembra, Mejor Ternero y Segundo Mejor Ternero, entre otros premios.','Grand Champion Bull, Third Best Female twice, Champion Calf and Reserve Champion Calf, among other awards.')}</p>
+        </div>
+      </div>
+      <a href="#/genetica" class="text-link reveal">${T('Ver nuestra genética','View our genetics')}</a>
+    </div>
+  </section>
+  `;
+}
+
+function geneticaTemplate(){
+  return `
+  ${pageHeroTemplate(T('NUESTRA GENÉTICA','OUR GENETICS'), T('Toros padres y donantes','Sires and donors'), 'toto')}
+  <section class="section">
+    <div class="wrap">
+      <p class="lede reveal">${T('El plantel de Cabaña Santa Cecilia se organiza en dos grupos: los toros padres y las donantes. Elegí una categoría para conocer cada animal, su familia y su genealogía.','Our herd is organized into two groups: sires and donors. Choose one to see each animal, its family and its pedigree.')}</p>
+      <div class="split split-full reveal" style="margin-top:56px;">
+        <div class="split-photos">
+          <a class="split-photo" href="#/toros">
+            ${img('tomas', T('Toros padres','Sires'))}
+            <div class="cap"><span>${T('6 ANIMALES','6 ANIMALS')}</span><b>${T('Toros padres','Sires')}</b></div>
+          </a>
+          <a class="split-photo" href="#/donantes">
+            ${img('esterlina', T('Donantes','Donors'))}
+            <div class="cap"><span>${T('6 ANIMALES','6 ANIMALS')}</span><b>${T('Donantes','Donors')}</b></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+function animalListTemplate(kind){
+  const list = kind === 'toro' ? BULLS : DONORS;
+  const title = kind === 'toro' ? T('Toros padres','Sires') : T('Donantes','Donors');
+  const cover = kind === 'toro' ? 'martin' : 'julie';
+  return `
+  ${pageHeroTemplate(T('NUESTRA GENÉTICA','OUR GENETICS'), title, cover)}
+  <section class="section">
+    <div class="wrap">
+      <p class="lede reveal" style="max-width:640px;">${kind === 'toro'
+        ? T('Los toros padres de la cabaña, seleccionados por consistencia genética y trayectoria en pista.','Our herd sires, selected for genetic consistency and a proven show record.')
+        : T('Las donantes del plantel, base de las familias que sostienen la genética de la cabaña.','Our donor cows, the foundation of the families behind our genetics.')}</p>
+      <div class="animal-grid">
+        ${list.map(a => `
+          <a class="animal-card reveal" href="#/${kind}/${a.slug}">
+            <div class="animal-photo" ${ratioStyle(a.photo)}>${img(a.photo, a.name)}</div>
+            <div class="animal-info">
+              <h3>${a.name}</h3>
+              <span>${T('VER FICHA','VIEW PROFILE')}</span>
+            </div>
+          </a>`).join('')}
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+function animalFichaTemplate(kind, slug){
+  const a = findAnimal(kind, slug);
+  if(!a) return notFoundTemplate();
+  const listRoute = kind === 'toro' ? 'toros' : 'donantes';
+  const listLabel = kind === 'toro' ? T('Toros padres','Sires') : T('Donantes','Donors');
+  const cat = kind === 'toro' ? T('Toro padre','Herd sire') : T('Donante','Donor');
+  return `
+  <section class="section" style="padding-top:150px;">
+    <div class="wrap">
+      <div class="crumb" style="color:var(--rust);">
+        <a href="#/${listRoute}" style="border-bottom:1px solid var(--line);padding-bottom:2px;">${listLabel}</a> &nbsp;/&nbsp; ${a.name}
+      </div>
+      <div class="ficha-top" style="margin-top:22px;">
+        <div class="ficha-photo reveal" ${ratioStyle(a.photo)}>${img(a.photo, a.name)}</div>
+        <div class="reveal">
+          <h1 style="font-size:clamp(36px,5vw,58px);">${a.name}</h1>
+          <p style="margin-top:18px;color:var(--ink-soft);font-size:16px;max-width:420px;">${L(a.intro)}</p>
+          <div class="ficha-meta">
+            <div class="ficha-meta-row"><span>${T('Categoría','Category')}</span><span>${cat}</span></div>
+            <div class="ficha-meta-row"><span>${T('Familia','Family')}</span><span>${L(a.familyLabel)}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="eyebrow reveal">${L(a.familyLabel).toUpperCase()}</div>
+      <h2 class="reveal" style="font-size:clamp(26px,3.4vw,36px);">${T('Genealogía','Pedigree')}</h2>
+      <div class="tree reveal">
+        <div class="tree-node">
+          <div class="ph" ${ratioStyle(a.photo)}>${img(a.photo, a.name)}</div>
+          <b>${a.name}</b><span>${cat.toUpperCase()}</span>
+        </div>
+        <div class="tree-connector">—</div>
+        ${a.family.map(f => `
+          <div class="tree-node">
+            <a href="${f.link ? '#/'+f.link : '#'}" style="${f.link ? '' : 'pointer-events:none;'}">
+              <div class="ph" ${ratioStyle(f.photo)}>${img(f.photo, f.name)}</div>
+              <b>${f.name}</b><span>${L(f.rel).toUpperCase()}</span>
+            </a>
+          </div>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  ${a.hijos ? `
+  <section class="section">
+    <div class="wrap">
+      <div class="eyebrow reveal">${T('DESCENDENCIA','PROGENY')}</div>
+      <h2 class="reveal" style="font-size:clamp(26px,3.4vw,36px);">${T('Hijos','Sons and daughters')}</h2>
+      <div class="hijos-grid reveal">
+        ${a.hijos.map(h => `<a class="hijo" href="${h.link ? '#/'+h.link : '#'}" style="${h.link ? '' : 'pointer-events:none;'}"><div class="ph" ${ratioStyle(h.photo)}>${img(h.photo, h.name)}</div><b>${h.name}</b></a>`).join('')}
+      </div>
+    </div>
+  </section>` : ''}
+  `;
+}
+
+function notFoundTemplate(){
+  return `<section class="section" style="padding-top:180px;text-align:center;">
+    <div class="wrap"><h1>${T('No encontramos esta página','Page not found')}</h1><a href="#/" class="text-link">${T('Volver al inicio','Back to home')}</a></div>
+  </section>`;
+}
+
+function cotwTemplate(){
+  const count = k => COTW.filter(r=>r.medal===MEDAL[k]).reduce((t,r)=>t+(r.n||1),0);
+  return `
+  ${pageHeroTemplate('CABAÑA SANTA CECILIA', COTW_NAME, 'blancanieves')}
+  <section class="section">
+    <div class="wrap">
+      <div class="cotw-head reveal">
+        <img class="cotw-logo" src="${window.COTW_LOGO}" alt="Champion of the World Competition">
+        <p class="lede" style="max-width:560px;">${T(
+          'Competencia internacional juzgada por fotografía. Estos son los resultados de la cabaña, año por año.',
+          'An international photo-judged competition. These are our results, year by year.')}</p>
+      </div>
+      <div class="stat-row reveal" style="margin-top:44px;">
+        <div class="stat"><b>${count('gold')}</b><span>${T('Oro','Gold')}</span></div>
+        <div class="stat"><b>${count('silver')}</b><span>${T('Plata','Silver')}</span></div>
+        <div class="stat"><b>${count('bronze')}</b><span>${T('Bronce','Bronze')}</span></div>
+        <div class="stat"><b>${count('america')}</b><span>${T('Campeona de América','Champion of the Americas')}</span></div>
+      </div>
+      <div class="cotw-grid reveal">${cotwCards(COTW)}</div>
+    </div>
+  </section>
+  `;
+}
+
+function contactoTemplate(){
+  return `
+  ${pageHeroTemplate('CABAÑA SANTA CECILIA', T('Contacto','Contact'), 'libra')}
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">${T('ESCRIBINOS','GET IN TOUCH')}</div>
+        <h2 style="font-size:clamp(28px,3.6vw,40px);margin-bottom:30px;">Cabaña Santa Cecilia</h2>
+        <div class="contact-item">
+          <span>INSTAGRAM</span>
+          <a href="https://instagram.com/cabanasantacecilia" target="_blank" rel="noopener">@cabanasantacecilia</a>
+        </div>
+        <div class="contact-item">
+          <span>EMAIL</span>
+          <a href="mailto:eyherabidefrancisco@gmail.com">eyherabidefrancisco@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span>${T('TELÉFONO / WHATSAPP','PHONE / WHATSAPP')}</span>
+          <a href="tel:+5492392633869">+54 9 2392 633869</a>
+        </div>
+      </div>
+      <div class="reveal ficha-photo" ${ratioStyle('maggie')}>${img('maggie','Cabaña Santa Cecilia')}</div>
+    </div>
+  </section>
+  `;
+}
+
+/* ============ MOUNT NAV / FOOTER ============ */
+function mountChrome(){
+  document.documentElement.lang = LANG;
+  document.title = T('Cabaña Santa Cecilia — Genética consistente','Cabaña Santa Cecilia — Consistent genetics');
+  document.getElementById('navContainer').innerHTML = navTemplate();
+  document.getElementById('footContainer').innerHTML = footerTemplate();
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', ()=>{
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+    burger.classList.remove('open'); mobileMenu.classList.remove('open');
+  }));
+  document.querySelectorAll('.lang-switch button').forEach(b=>b.addEventListener('click', ()=>setLang(b.dataset.lang)));
+}
+mountChrome();
+
+/* ============ ROUTER ============ */
+const app = document.getElementById('app');
+
+function render(){
+  const hash = location.hash.replace(/^#\/?/, '');
+  const parts = hash.split('/').filter(Boolean);
+  let html = '';
+  let route = parts[0] || 'home';
+
+  if(route === '' || route === 'home'){ html = homeTemplate(); route='home'; }
+  else if(route === 'quienes-somos'){ html = quienesSomosTemplate(); }
+  else if(route === 'genetica'){ html = geneticaTemplate(); }
+  else if(route === 'toros' && !parts[1]){ html = animalListTemplate('toro'); }
+  else if(route === 'donantes' && !parts[1]){ html = animalListTemplate('donante'); }
+  else if(route === 'toro' && parts[1]){ html = animalFichaTemplate('toro', parts[1]); }
+  else if(route === 'donante' && parts[1]){ html = animalFichaTemplate('donante', parts[1]); }
+  else if(route === 'champion-of-the-world' || route === 'noticias'){ html = cotwTemplate(); route = 'champion-of-the-world'; }
+  else if(route === 'contacto'){ html = contactoTemplate(); }
+  else { html = notFoundTemplate(); }
+
+  app.innerHTML = html;
+  window.scrollTo(0,0);
+  updateNavState(route);
+  observeReveals();
+}
+
+function updateNavState(route){
+  document.querySelectorAll('.nav-links a[data-route]').forEach(a=>{
+    a.classList.toggle('active', a.dataset.route === route);
+  });
+  const isHome = route === 'home';
+  document.body.classList.toggle('page-alt', !isHome);
+  onScroll();
+}
+
+function observeReveals(){
+  const els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(e=>e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:.12});
+  els.forEach(e=>io.observe(e));
+}
+
+/* ============ NAV BEHAVIOR ============ */
+function onScroll(){
+  const navEl = document.getElementById('nav');
+  if(!navEl) return;
+  const isHome = !location.hash || location.hash === '#/' || location.hash === '';
+  const solid = window.scrollY > 40 || !isHome;
+  navEl.classList.toggle('solid', solid);
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+
+window.addEventListener('hashchange', render);
+render();
+
+</script>
+</body>
+</html>
