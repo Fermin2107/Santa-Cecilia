@@ -335,6 +335,11 @@ a.pc-par b::after,a.pc-gp::after{content:' →';color:var(--rust);font-size:.85e
 .w-feature .ph{overflow:hidden;background:var(--parchment-deep);}
 .w-feature .ph img{width:100%;height:100%;object-fit:cover;display:block;}
 .w-feature-text h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.4vw,38px);margin:6px 0 16px;}
+.w-facts{margin:26px 0 0;max-width:520px;display:flex;flex-direction:column;gap:12px;}
+.w-facts div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;border-top:1px solid var(--line-soft);padding-top:12px;}
+.w-facts dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);padding-top:3px;}
+.w-facts dd{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink);}
+@media(max-width:520px){.w-facts div{grid-template-columns:1fr;gap:4px;}}
 .w-feature-text p{color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:520px;}
 .world-cta{display:block;margin-top:18px;}
 .world-cta.split-photo{aspect-ratio:21/8;}
@@ -810,10 +815,18 @@ const WORLD = [
   },
   {
     id:'usa', country:{es:'Estados Unidos', en:'United States'},
+    intro:{es:'Fuimos de los primeros en llevar genética argentina a Estados Unidos. La historia empezó en 2013, cuando una cabaña de Michigan compró el 50% de dos vaquillonas de Santa Cecilia. Como en ese momento Estados Unidos no permitía importar genética argentina, el camino fue por Canadá: los embriones se transfirieron a receptoras canadienses y las vacas preñadas cruzaron la frontera hacia Michigan. En julio de 2017 nacieron los primeros siete terneros de sangre argentina en Estados Unidos, tres hembras y cuatro machos. Uno de ellos fue ARG Hector. Desde entonces, de la mano del creciente interés por la carne producida a pasto, esa genética llegó a otros estados, incluso hasta California.',
+           en:'We were among the first to bring Argentine genetics to the United States. The story began in 2013, when a Michigan ranch bought a 50% interest in two Santa Cecilia heifers. Since Argentine genetics could not be imported into the United States at the time, the route went through Canada: the embryos were transferred into Canadian recipient cows, and the pregnant cows then crossed the border into Michigan. In July 2017 the first seven Argentine-bred calves were born in the United States, three heifers and four bulls. One of them was ARG Hector. Since then, driven by growing interest in grass-fed beef, those genetics have spread to other states, as far as California.'},
     feature:{
       photo:'us-hector', name:'ARG Hector', slug:'hector',
       progeny:[{photo:'us-jsf-palermo', name:'JSF Palermo'}],
       tag:{es:'TORO', en:'BULL'},
+      facts:[
+        {k:{es:'Propietarios', en:'Owners'}, v:{es:'Little Cedar Cattle Co., South River Genetics y Cabaña Santa Cecilia', en:'Little Cedar Cattle Co., South River Genetics and Cabaña Santa Cecilia'}},
+        {k:{es:'Evaluación', en:'Evaluation'}, v:{es:'Sire Progeny Test Shorthorn 2019, Universidad de Illinois', en:'2019 Shorthorn Sire Progeny Test, University of Illinois'}},
+        {k:{es:'Madre', en:'Dam'}, v:{es:'Leave Elvira, Gran Campeona Hembra de Palermo 2016', en:'Leave Elvira, Grand Champion Female at Palermo 2016'}},
+        {k:{es:'Nacimiento', en:'Born'}, v:{es:'7 de julio de 2017, en Estados Unidos, por transferencia embrionaria · Mocho', en:'July 7, 2017, in the United States, by embryo transfer · Polled'}},
+      ],
       desc:{es:'Hector es un gran representante de la genética argentina y, en especial, de Cabaña Santa Cecilia. Un toro con un gran fenotipo, de muy lindas líneas y facilidad de parto súper probada. La aceptación que ha tenido a nivel mundial refleja lo consistente de nuestra genética y el trabajo que hay detrás. Su progenie es muy consistente y con gran apertura genética.',
             en:'Hector is a great ambassador for Argentine genetics, and for Cabaña Santa Cecilia in particular. A bull with an outstanding phenotype, very attractive lines and well-proven calving ease. The acceptance he has earned worldwide reflects the consistency of our genetics and the work behind them. His progeny are very uniform and bring valuable outcross genetics.'},
     },
@@ -870,6 +883,7 @@ function worldTemplate(){
           <div class="eyebrow">${L(f.tag)}</div>
           <h3>${f.name}</h3>
           <p>${L(f.desc)}</p>
+          ${f.facts ? `<dl class="w-facts">${f.facts.map(x=>`<div><dt>${L(x.k)}</dt><dd>${L(x.v)}</dd></div>`).join('')}</dl>` : ''}
           ${pedCompact({slug:f.slug})}
         </div>
       </div>
